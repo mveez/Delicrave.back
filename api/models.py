@@ -25,7 +25,7 @@ class ClientAddress(models.Model):
     updatedAt = models.DateTimeField(auto_now=True)
 
 class Clients(models.Model):
-    idClient = models.ForeignKey(ClientAddress, on_delete=models.CASCADE)
+    idClientAddress = models.ForeignKey(ClientAddress, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
