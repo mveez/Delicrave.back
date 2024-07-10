@@ -53,11 +53,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    "http://localhost:80",
-    "http://localhost:8080",
-    "http://localhost:8000",
-)
+CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ORIGIN_WHITELIST = (
+#     "http://localhost:80",
+#     "http://localhost:8080",
+#     "http://localhost:8000",
+# )
 
 ROOT_URLCONF = 'delicrave_api.urls'
 
