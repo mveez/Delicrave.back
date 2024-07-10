@@ -19,7 +19,7 @@ class Products(models.Model):
 class ClientAddress(models.Model):
     province = models.CharField(max_length=50)
     locality = models.CharField(max_length=50)
-    street = models.IntegerField(default=0)
+    street = models.CharField(max_length=50)
     streetNumber = models.CharField(max_length=50)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
