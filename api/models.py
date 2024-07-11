@@ -55,7 +55,9 @@ class CartItems(models.Model):
 
 class Contacts(models.Model):
     name = models.CharField(max_length=50)
+    secondName = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
+    secondLastname = models.CharField(max_length=50)
     subject = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     message = models.TextField()

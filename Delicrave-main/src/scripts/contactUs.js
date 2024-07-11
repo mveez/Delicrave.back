@@ -3,7 +3,7 @@ navBbar();
 function handleSubmit(e) {
     e.preventDefault();
 
-    const URI = "";
+    const URIContactUs = "http://localhost:8000/api/v1/contacts/";
 
     const formInputs = document.getElementsByTagName("INPUT");    
 
@@ -12,11 +12,11 @@ function handleSubmit(e) {
     const email = formInputs[1].value;
     const message = document.getElementById("message").value;
     const image = formInputs[2].value;
-    const checkbox = formInputs[3].checked;
-    
-    console.log("fullName: " + fullName + " | messageReason: " + messageReason + " | email: " + email + " | message: " + message + " | image: " + image + " | checkbox: " + checkbox);
+    //const checkbox = formInputs[3].checked;
 
-    if(!fullName || !messageReason || !email || !message || !checkbox) {
+    console.log("fullName: " + fullName + " | messageReason: " + messageReason + " | email: " + email + " | message: " + message + " | image: " + image);
+
+    if(!fullName || !messageReason || !email || !message) {
         alert("Por favor llene todos los campos");
         return;
     }
@@ -28,19 +28,30 @@ function handleSubmit(e) {
     if (fullName.length >= 3 && fullName.length <= 75) {
         if(regex.test(email)) {
 
-            contactData = [
+            // Dividir el fullName en partes
+            const nameParts = fullName.split(' ');
+            const name = nameParts[0] || '';
+            const secondName = nameParts[1] || '';
+            const lastName = nameParts[2] || '';
+            const secondLastName = nameParts[3] || '';
+
+            contactData = 
+            // [
                 {
-                    "fullName":fullName,
-                    "messageReason":messageReason,
+                    "name":name,
+                    "secondName":secondName,
+                    "lastName":lastName,
+                    "secondLastName":secondLastName,
+                    "subject":messageReason,
                     "email":email,
                     "message":message,
                     "image":image,
-                    "checkbox":checkbox,
+                    //"checkbox":checkbox,
                 }
-            ]
+            // ]
             
-            /*
-            fetch(URI, {
+            
+            fetch(URIContactUs, {
                     method:'POST',
                     headers:{
                         'Content-type':'application/json',
@@ -50,7 +61,7 @@ function handleSubmit(e) {
             .then((response) => response.json())
             .then((response) => {data = response})
             .catch((error) => console.log("Error: ", error));
-            */
+            
             alert("Enviado");
             window.location = "./../../../index.html";
 
