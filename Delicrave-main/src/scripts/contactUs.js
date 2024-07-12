@@ -1,74 +1,63 @@
 navBbar();
-
 function handleSubmit(e) {
     e.preventDefault();
 
     const URIContactUs = "http://localhost:8000/api/v1/contacts/";
 
-    const formInputs = document.getElementsByTagName("INPUT");    
-
+    const formInputs = document.getElementsByTagName("INPUT");
     const fullName = formInputs[0].value;
     const messageReason = document.getElementById("messageReason").value;
     const email = formInputs[1].value;
     const message = document.getElementById("message").value;
-    const image = formInputs[2].value;
-    //const checkbox = formInputs[3].checked;
+    const imageFile = formInputs[2].files[0];  // obtener el archivo en lugar del valor
+    const checkbox = formInputs[3].checked
 
-    console.log("fullName: " + fullName + " | messageReason: " + messageReason + " | email: " + email + " | message: " + message + " | image: " + image);
-
-    if(!fullName || !messageReason || !email || !message) {
+    if (!fullName || !messageReason || !email || !message || !checkbox) {
         alert("Por favor llene todos los campos");
         return;
     }
 
-    let data;
-    let contactData = [];
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (fullName.length >= 3 && fullName.length <= 75 && regex.test(email)) {
 
-    if (fullName.length >= 3 && fullName.length <= 75) {
-        if(regex.test(email)) {
+        const nameParts = fullName.split(' ');
+        const name = nameParts[0] || '';
+        const secondName = nameParts[1] || '';
+        const lastName = nameParts[2] || '';
+        const secondLastName = nameParts[3] || '';
 
-            // Dividir el fullName en partes
-            const nameParts = fullName.split(' ');
-            const name = nameParts[0] || '';
-            const secondName = nameParts[1] || '';
-            const lastName = nameParts[2] || '';
-            const secondLastName = nameParts[3] || '';
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("secondName", secondName);
+        formData.append("lastName", lastName);
+        formData.append("secondLastName", secondLastName);
+        formData.append("subject", messageReason);
+        formData.append("email", email);
+        formData.append("message", message);
+        if (imageFile) {
+            formData.append("image", imageFile);
+        }
 
-            contactData = 
-            // [
-                {
-                    "name":name,
-                    "secondName":secondName,
-                    "lastName":lastName,
-                    "secondLastName":secondLastName,
-                    "subject":messageReason,
-                    "email":email,
-                    "message":message,
-                    "image":image,
-                    //"checkbox":checkbox,
-                }
-            // ]
-            
-            
-            fetch(URIContactUs, {
-                    method:'POST',
-                    headers:{
-                        'Content-type':'application/json',
-                    },
-                    body: JSON.stringify(contactData),
-            })
-            .then((response) => response.json())
-            .then((response) => {data = response})
-            .catch((error) => console.log("Error: ", error));
-            
+        fetch(URIContactUs, {
+            method: 'POST',
+            body: formData,
+        })
+        .then((response) => {
+            if (!response.ok) {
+                return response.json().then(error => { throw new Error(JSON.stringify(error)); });
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log('Success:', data);
             alert("Enviado");
             window.location = "./../../../index.html";
-
-        } else {
-            alert("Por favor ingrese un email válido!");
-        }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Error al enviar el formulario. Por favor, inténtelo de nuevo.');
+        });
     } else {
-        alert("Por favor ingrese un nombre completo válido! Debe tener entre 5 y 100 caracteres");
+        alert("Por favor ingrese datos válidos.");
     }
 }

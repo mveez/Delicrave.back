@@ -55,11 +55,11 @@ class CartItems(models.Model):
 
 class Contacts(models.Model):
     name = models.CharField(max_length=50)
-    secondName = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
-    secondLastname = models.CharField(max_length=50)
+    secondName = models.CharField(max_length=50, blank=True)
+    lastName = models.CharField(max_length=50)
+    secondLastName = models.CharField(max_length=50, blank=True)
     subject = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     message = models.TextField()
-    image = models.ImageField(upload_to='images/', default='default.png')
+    image = models.ImageField(upload_to='images/', default='default.png', blank=True)
     createdAt = models.DateTimeField(auto_now_add=True)
