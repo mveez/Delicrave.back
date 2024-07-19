@@ -13,7 +13,6 @@ function navBbar() {
                                                     '<li><a href="index.html#sobre-nosotros" onclick="aboutUsChanger()">SOBRE NOSOTROS</a></li>'+
                                                     '<li><a href="./src/views/contactUs/contactUs.html">CONTACTO</a></li>'+
                                                     '<li><a href="./src/views/locations/locations.html">LOCACIÓN</a></li>'+
-                                                    '<li><a href="./src/views/cart/cart.html">CARRITO</a></li>'+
                                                   '</ul>';
   } else {
     document.getElementById("navBar").innerHTML = '<div class="navBarTop">'+
@@ -27,7 +26,6 @@ function navBbar() {
                                                     '<li><a href="../../../index.html#sobre-nosotros">SOBRE NOSOTROS</a></li>'+
                                                     '<li><a href="../contactUs/contactUs.html">CONTACTO</a></li>'+
                                                     '<li><a href="../locations/locations.html">LOCACIÓN</a></li>'+
-                                                    '<li><a href="../cart/cart.html">CARRITO</a></li>'+
                                                   '</ul>';
   }
 }

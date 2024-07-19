@@ -23,7 +23,3 @@ function displayCartItems() {
         });
     }
 }
-
-function cartClick(){
-    window.location.href = 'ruta/a/la/pagina/del/carrito.html'; // Cambia esta ruta según tu estructura
-}

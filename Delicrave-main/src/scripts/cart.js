@@ -102,6 +102,9 @@ async function handleSubmit(e) {
 
 
     //Falta hacer POST Con los Items Individuales a: "http://localhost:8000/api/v1/cartitems/"
+
+    //localStorage.removeItem("cantProd");
+    //localStorage.removeItem("miArray");
 }
 
 // Get Product List
@@ -153,17 +156,17 @@ function deleteButton(e) {
 
 
 /* Si se hace el set en Catalogo comentar estas dos lineas siguientes para que NO sobre escriban */
-const miArray = [1, 3, 4];
-localStorage.setItem("miArray", JSON.stringify(miArray));
+//const miArray = [0];
+//localStorage.setItem("miArray", JSON.stringify(miArray));
 
 
 // A partir de aca no tocar nada!
-const miArrayIdsRecuperado = JSON.parse(localStorage.getItem("miArray"));
-console.log("miArrayIdsRecuperado", miArrayIdsRecuperado);
+const miArray = JSON.parse(localStorage.getItem("miArray"));
+console.log("miArray", miArray);
 
 let cantProd = [];
 
-miArrayIdsRecuperado.forEach(() => {
+miArray.forEach(() => {
     cantProd.push(1);
 });
 
@@ -178,7 +181,7 @@ getProductos()
     console.log("Prod: ", prod)
 
     prod.forEach((itemProd) => {
-        miArrayIdsRecuperado.forEach((itemArray, index) => {
+        miArray.forEach((itemArray, index) => {
             if (itemProd.id == itemArray) {
                 document.getElementById("tableBodyCart").innerHTML += '<tr id="tableBodyTr">'+
                                                                         `<td class="tableTd">${itemProd.id}</td>`+

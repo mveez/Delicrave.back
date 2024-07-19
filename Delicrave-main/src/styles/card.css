@@ -70,3 +70,22 @@
     font-weight: bold;
     background-color: transparent;
 }
+
+.addToCart {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addToCart:hover {
+    background-color: #e5533d;
+}
+
+.addToCart {
+    margin-top: 0.5rem;
+}

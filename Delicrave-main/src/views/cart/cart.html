@@ -7,7 +7,7 @@
         
         <link rel="stylesheet" href="./../../styles/cart.css">
         <link rel="stylesheet" href="./../../styles/navBar.css">
-        <title>CONTACTO</title>
+        <title>Mi Carrito</title>
     </head>
 
     <body>
@@ -40,51 +40,92 @@
 
                 <form id="personalDataForm" onsubmit="handleSubmit(event)">
                     <h3>PRINCIPALES</h3>
-                    <label for="name">Nombre:</label>
-                    <input name="name" id="name" class="" type="text" value="" placeholder="Nombre" required>
-                    
-                    <label for="secondName">Segundo Nombre (Opcional):</label>
-                    <input name="secondName" id="secondName" class="" type="text" value="" placeholder="Segundo Nombre">
+                    <div class="myInputs">
+                        <div class="myInputs-items">
+                            <label for="name">Nombre:</label>
+                            <input name="name" id="name" class="" type="text" value="" placeholder="Nombre" required>
+                        </div>
 
-                    <label for="lastname">Apellido:</label>
-                    <input name="lastname" id="lastname" class="" type="text" value="" placeholder="Apellido" required>
+                        <div class="myInputs-items">
+                            <label for="secondName">Segundo Nombre (Opcional):</label>
+                            <input name="secondName" id="secondName" class="" type="text" value="" placeholder="Segundo Nombre">
+                        </div>
+                    </div>
                     
-                    <label for="secondLastname">Segundo Apellido (Opcional):</label>
-                    <input name="secondLastname" id="secondLastname" class="" type="text" value="" placeholder="Segundo Apellido">
+                    <div class="myInputs">
+                        <div class="myInputs-items">
+                            <label for="lastname">Apellido:</label>
+                            <input name="lastname" id="lastname" class="" type="text" value="" placeholder="Apellido" required>
+                        </div>
 
-                    <label for="">Email:</label>
-                    <input name="email" id="email" class="" type="text" value="" placeholder="Email" required>
+                        <div class="myInputs-items">
+                            <label for="secondLastname">Segundo Apellido (Opcional):</label>
+                            <input name="secondLastname" id="secondLastname" class="" type="text" value="" placeholder="Segundo Apellido">
+                        </div>
+                    </div>
                     
-                    <label for="phoneNumber">Número de telefono:</label>
-                    <input name="phoneNumber" id="phoneNumber" class="" type="text" value="" placeholder="Número de telefono" required>
+                    <div class="myInputs">
+                        <div class="myInputs-items">
+                            <label for="">Email:</label>
+                            <input name="email" id="email" class="" type="text" value="" placeholder="Email" required>
+                        </div>
 
+                        <div class="myInputs-items">
+                            <label for="phoneNumber">Número de telefono:</label>
+                            <input name="phoneNumber" id="phoneNumber" class="" type="text" value="" placeholder="Número de telefono" required>
+                        </div>
+                    </div>
+                    
                     <h3>DIRECCIÓN DE ENVIO</h3>
-                    <label for="province">Provincia:</label>
-                    <input name="province" id="province" class="" type="text" value="" placeholder="Provincia" required>
-                    
-                    <label for="locality">Localidad:</label>
-                    <input name="locality" id="locality" class="" type="text" value="" placeholder="Localidad" required>
-                    
-                    <label for="street">Nombre Calle:</label>
-                    <input name="street" id="street" class="" type="text" value="" placeholder="Nombre Calle" required>
-                    
-                    <label for="streetNumber">Número Calle:</label>
-                    <input name="streetNumber" id="streetNumber" class="" type="number" value="" placeholder="Número Calle" required>
+                    <div class="myInputs">
+                        <div class="myInputs-items">
+                            <label for="province">Provincia:</label>
+                            <input name="province" id="province" class="" type="text" value="" placeholder="Provincia" required>
+                        </div>
 
-                    <h3>FECHA DE ENVIO</h3>
-                    
-                    <label for="deliveryDate">Fecha Envio:</label>
-                    <input name="deliveryDate" id="deliveryDate" class="" type="date" value="" required>
+                        <div class="myInputs-items">
+                            <label for="locality">Localidad:</label>
+                            <input name="locality" id="locality" class="" type="text" value="" placeholder="Localidad" required>
+                        </div>
+                    </div>
 
-                    <h3>DATOS DE TARJETA</h3>
-                    <label for="cardNumber">NUMERO TARJETA:</label>
-                    <input name="cardNumber" id="cardNumber" class="" type="text" value="" placeholder="NUMERO TARJETA" min="16" max="16" required>
-                    
-                    <label for="securityNumber">NUMERO DE SEGURIDAD</label>
-                    <input name="securityNumber" id="securityNumber" class="" type="number" value="" placeholder="NUMERO DE SEGURIDAD" min="100" max="999" required>
-                    
-                    <label for="expirationDate">FECHA VENCIMIENTO:</label>
-                    <input name="expirationDate" id="expirationDate" class="" type="date" value="" placeholder="FECHA VENCIMIENTO" required>
+                    <div class="myInputs">
+                        <div class="myInputs-items">                    
+                            <label for="street">Nombre Calle:</label>
+                            <input name="street" id="street" class="" type="text" value="" placeholder="Nombre Calle" required>
+                        </div>
+
+                        <div class="myInputs-items">
+                            <label for="streetNumber">Número Calle:</label>
+                            <input name="streetNumber" id="streetNumber" class="" type="number" value="" placeholder="Número Calle" required>
+                        </div>
+                    </div>
+
+                    <h3>DATOS DE TARJETA Y FECHA DE ENVIO</h3>
+                    <div class="myInputs">
+                        <div class="myInputs-items">
+
+                            <label for="cardNumber">NUMERO TARJETA:</label>
+                            <input name="cardNumber" id="cardNumber" class="" type="text" value="" placeholder="NUMERO TARJETA" min="16" max="16" required>
+                        </div>
+
+                        <div class="myInputs-items">                            
+                            <label for="securityNumber">NUMERO DE SEGURIDAD</label>
+                            <input name="securityNumber" id="securityNumber" class="" type="number" value="" placeholder="NUMERO DE SEGURIDAD" min="100" max="999" required>
+                        </div>
+                    </div>
+                            
+                    <div class="myInputs">
+                        <div class="myInputs-items">                            
+                            <label for="expirationDate">FECHA VENCIMIENTO:</label>
+                            <input name="expirationDate" id="expirationDate" class="" type="date" value="" placeholder="FECHA VENCIMIENTO" required>
+                        </div>
+
+                        <div class="myInputs-items">                            
+                            <label for="deliveryDate">FECHA DE ENVIO:</label>
+                            <input name="deliveryDate" id="deliveryDate" class="" type="date" value="" required>
+                        </div>
+                    </div>
 
                     <input id="submitButton" type="submit" value="REALIZAR COMPRA">
                 </form>
