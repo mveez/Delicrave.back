@@ -20,7 +20,7 @@ class ClientAddress(models.Model):
     province = models.CharField(max_length=50)
     locality = models.CharField(max_length=50)
     street = models.CharField(max_length=50)
-    streetNumber = models.CharField(max_length=50)
+    streetNumber = models.IntegerField(default=0)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
 
@@ -55,9 +55,11 @@ class CartItems(models.Model):
 
 class Contacts(models.Model):
     name = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
+    secondName = models.CharField(max_length=50, blank=True)
+    lastName = models.CharField(max_length=50)
+    secondLastName = models.CharField(max_length=50, blank=True)
     subject = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     message = models.TextField()
-    image = models.ImageField(upload_to='images/', default='default.png')
+    image = models.ImageField(upload_to='images/', default='default.png', blank=True)
     createdAt = models.DateTimeField(auto_now_add=True)
